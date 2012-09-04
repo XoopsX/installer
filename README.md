@@ -5,8 +5,9 @@ XOOPS X (ten) Installer
 
 <pre>
 cd [DOCUMENT ROOT]
-sh T="../xoops_trust_path";curl -kL github.com/XoopsX/installer/raw/master/install.sh|sed "s#<T>#$T#"|sh
+sh T="../xoops_trust_path";curl -kL github.com/XoopsX/installer/raw/master/install.sh|sed "s#&lt;T&gt;#$T#"|sh
 </pre>
+</code>
 
 ## On the web
 
