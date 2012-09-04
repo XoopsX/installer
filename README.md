@@ -13,7 +13,7 @@ T="../xoops_trust_path";curl -kL github.com/XoopsX/installer/raw/master/install.
 
 <pre>
 cd [DOCUMENT ROOT]
-sh T="../xoops_trust_path";curl -kL github.com/XoopsX/installer/raw/master/install.sh|sed "s#&lt;T&gt;#$T#"|sh
+set T="../xoops_trust_path";curl -kL github.com/XoopsX/installer/raw/master/install.sh|sed "s#&lt;T&gt;#$T#"|sh
 </pre>
 </code>
 
