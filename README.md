@@ -19,5 +19,5 @@ sh T="../xoops_trust_path";curl -kL github.com/XoopsX/installer/raw/master/insta
 
 ## On the web
 
-* Upload install.cgi into [DOCUMENT ROOT] & chmod +x install.cgi
+* Upload "[install.cgi](https://github.com/XoopsX/installer/raw/master/install.cgi)" into [DOCUMENT ROOT] & chmod +x install.cgi
 * Access to install.cgi with web browser
