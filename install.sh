@@ -5,8 +5,8 @@ main() {
 	if [ ! $TRUST ]; then
 		TRUST="../xoops_trust_path"
 	fi
-#	wget --no-check-certificate -O corepack.tar.gz https://github.com/XoopsX/legacy/zipball/stable
-	curl -kL -o corepack.tar.gz https://github.com/XoopsX/legacy/zipball/stable
+#	wget --no-check-certificate -O corepack.tar.gz https://github.com/XoopsX/legacy/tarball/stable
+	curl -kL -o corepack.tar.gz https://github.com/XoopsX/legacy/tarball/stable
 	tar zxf corepack.tar.gz
 	mkdir ${TRUST}
 	cp -rf XoopsX-legacy-*/html/* ./
