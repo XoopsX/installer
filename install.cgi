@@ -10,7 +10,7 @@ else
 	TRUST="../xoops_trust_path"
 fi
 echo "<pre>"
-curl -kL github.com/nao-pon/xoopsx_installer/raw/master/installer.sh|sed "s#<T>#$TRUST#"|sh|cat
+curl -kL github.com/XoopsX/installer/raw/master/install.sh|sed "s#<T>#$TRUST#"|sh|cat
 echo "</pre>"
 echo "<br><a href="./install/index.php">Goto your XOOPS installer</a>"
 echo "</body></html>"
