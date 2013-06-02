@@ -5,17 +5,19 @@ XOOPS X (ten) Installer
 
 ```bash
 cd [DOCUMENT ROOT]
-T="../xoops_trust_path";curl -kL github.com/XoopsX/installer/raw/master/install.sh|sed "s#<T>#$T#"|sh
+T="../xoops_trust_path";curl xoopsx.github.io/installer/install.sh|sed "s#<T>#$T#"|sh
 ```
 
 ## On the shell (csh)
 
 ```csh
 cd [DOCUMENT ROOT]
-set T="../xoops_trust_path";curl -kL github.com/XoopsX/installer/raw/master/install.sh|sed "s#<T>#$T#"|sh
+set T="../xoops_trust_path";curl xoopsx.github.io/installer/install.sh|sed "s#<T>#$T#"|sh
 ```
 
 ## On the web
 
-* Upload "[install.cgi](https://github.com/XoopsX/installer/raw/master/install.cgi)" into [DOCUMENT ROOT] & chmod +x install.cgi
-* Access to `install.cgi` or `install.cgi?../xoops_trust_path` with your web browser
+* Upload "[install.cgi](http://xoopsx.github.io/installer/install.cgi)" into [DOCUMENT ROOT] 
+* And chmod +x install.cgi
+* Access to `install.cgi` or `install.cgi` with your web browser
+* And input your "XOOPS_TRUST_PATH"
