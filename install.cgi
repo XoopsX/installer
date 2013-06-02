@@ -59,7 +59,7 @@ else
 		rm ./install.cgi
 		echo "<h1 class="page-header">Getting XOOPS X (ten) and extracting...</h1>"
 		echo "<pre style=\"height:60%;overflow:auto;\">"
-		curl -kL github.com/XoopsX/installer/raw/master/install.sh|sed "s#<T>#$TRUST#"|sh|cat
+		curl xoopsx.github.io/installer/install.sh|sed "s#<T>#$TRUST#"|sh|cat
 		echo "</pre>"
 		echo "<div class="form-actions"><a href=\"./install/index.php\" class=\"btn btn-success\">Goto your XOOPS installer</a></div>"
 	else
