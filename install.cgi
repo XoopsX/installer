@@ -41,27 +41,62 @@ EOF
      rm -f /tmp/urldecode.sed
 }
 
+function msg() {
+    if [ ${HTTP_ACCEPT_LANGUAGE:0:2} = 'ja' ]; then
+        L=2
+    else
+        L=1
+    fi
+
+    MSG[10]="XOOPS Cube Legacy (XOOPS X) Setup"
+    MSG[20]="XOOPS Cube Legacy (XOOPS X) セットアップ"
+
+    MSG[11]="&quot;xoops_trust_path&quot; Settting"
+    MSG[21]="&quot;xoops_trust_path&quot; の設定"
+
+    MSG[12]="Please set server path of your &quot;xoops_trust_path&quot;."
+    MSG[22]="サーバー上に配置する &quot;xoops_trust_path&quot; のパスを指定してください。<br>できる限りドキュメントルート外に指定してください。ただし、PHP からアクセスできる場所に限ります。"
+
+    MSG[13]="HTTPS Proxy Config : <br>(Optional)"
+    MSG[23]="HTTPS プロキシ : <br>(任意設定)"
+
+    MSG[14]="(Optional)Please set proxy address for your server.<br>(e.g.) https://proxyuser:password@proxyhost.example.com:8080<br><span class="text-warning">WARNING: This option will override server&apos;s environment variable!</span>"
+    MSG[24]="必要であれば、あなたの環境で利用する HTTPS プロキシの指定をしてください。<br>(例) https://proxyuser:password@proxyhost.example.com:8080<br><span class="text-warning">注意事項: サーバーの環境変数「HTTPS_PROXY」を上書きします。</span>"
+
+    MSG[15]="OK &amp; Upload &amp; Please Wait"
+    MSG[25]="OK &amp; アップロード &amp; 少々お待ちください"
+
+    MSG[16]="Getting XOOPS X (ten) and extracting..."
+    MSG[26]="XOOPS X (ten) のパッケージを取得しサーバー上に配置しています..."
+
+    MSG[17]="Goto your XOOPS Cube Legacy installer"
+    MSG[27]="クリックして XOOPS Cube Legacy のインストーラーへ進む"
+
+    echo ${MSG[$L$1]}
+}
+
 function showForm() {
     cat <<EOT
-    <h1 class="page-header">"xoops_trust_path" Settting</h1>
+    <h1 class="page-header">$(msg 0)</h1>
+    <h2>$(msg 1)</h2>
     <form method="get" class="form-horizontal">
         <div class="control-group">
             <label class="control-label" for="TRUST">xoops_trust_path : </label>
             <div class="controls">
                 <input id="TRUST"  name="TRUST" class="span6" style="height:30px" type="text" value="$1">
-                <p class="help-block">Please set server path of your "xoops_trust_path".</p>
+                <p class="help-block">$(msg 2)</p>
             </div>
         </div>
+        <hr>
         <div class="control-group">
-            <label class="control-label" for="https_proxy">HTTPS Proxy Config : </label>
+            <label class="control-label" for="https_proxy">$(msg 3)</label>
             <div class="controls">
                 <input id="HTTPS_PROXY" name="HTTPS_PROXY" class="span6" style="height:30px;" type="text" value="$HTTPS_PROXY">
-                <p class="help-block">(Optional)Please set proxy address for your server. (e.g.) https://proxyuser:password@proxyhost.example.com:8080<br>
-                WARNING: This option will override server&apos;s environment variable!</p>
+                <p class="help-block">$(msg 4)</p>
             </div>
         </div>
         <div class="form-actions">
-            <input type="submit" class="btn btn-primary" value="OK &amp; Upload &amp; Please Wait">
+            <input type="submit" class="btn btn-primary" value="$(msg 5)">
         </div>
     </form>
 EOT
@@ -109,11 +144,12 @@ else
     
     if [ -d $TRUST ]; then
         rm ./install.cgi
-        echo "<h1 class="page-header">Getting XOOPS X (ten) and extracting...</h1>"
-        echo "<pre style=\"height:60%;overflow:auto;\">"
+        echo "<h1 class="page-header">$(msg 0)</h1>"
+        echo "<p class="lead">$(msg 6)</p>"
+        echo "<pre style=\"height:55%;overflow:auto;\">"
         curl xoopsx.github.io/installer/install.sh|sed "s#<T>#$TRUST#"|sh 2>&1|cat
         echo "</pre>"
-        echo "<div class="form-actions"><a href=\"./install/index.php\" class=\"btn btn-success\">Goto your XOOPS installer</a></div>"
+        echo "<div class="form-actions"><a href=\"./install/index.php\" class=\"btn btn-success\">$(msg 7)</a></div>"
     else
         echo "<div><span class=\"label label-important\">$MSG</span></div>"
         declare P="`dirname  \`pwd\``/xoops_trust_path"
