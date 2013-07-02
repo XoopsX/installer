@@ -49,28 +49,28 @@ function msg() {
     fi
 
     MSG[10]="XOOPS Cube Legacy (XOOPS X) Setup"
-    MSG[20]="XOOPS Cube Legacy (XOOPS X) �Z�b�g�A�b�v"
+    MSG[20]="XOOPS Cube Legacy (XOOPS X) セットアップ"
 
     MSG[11]="&quot;xoops_trust_path&quot; Settting"
-    MSG[21]="&quot;xoops_trust_path&quot; �̐ݒ�"
+    MSG[21]="&quot;xoops_trust_path&quot; の設定"
 
     MSG[12]="Please set server path of your &quot;xoops_trust_path&quot;."
-    MSG[22]="�T�[�o�[��ɔz�u���� &quot;xoops_trust_path&quot; �̃p�X���w�肵�Ă��������B<br>�ł������h�L�������g���[�g�O�Ɏw�肵�Ă��������B�������APHP ����A�N�Z�X�ł���ꏊ�Ɍ���܂��B"
+    MSG[22]="サーバー上に配置する &quot;xoops_trust_path&quot; のパスを指定してください。<br>できる限りドキュメントルート外に指定してください。ただし、PHP からアクセスできる場所に限ります。"
 
     MSG[13]="HTTPS Proxy Config : <br>(Optional)"
-    MSG[23]="HTTPS �v���L�V : <br>(�C�Ӑݒ�)"
+    MSG[23]="HTTPS プロキシ : <br>(任意設定)"
 
     MSG[14]="(Optional)Please set proxy address for your server.<br>(e.g.) https://proxyuser:password@proxyhost.example.com:8080<br><span class="text-warning">WARNING: This option will override server&apos;s environment variable!</span>"
-    MSG[24]="�K�v�ł���΁A���Ȃ��̊��ŗ��p���� HTTPS �v���L�V�̎w������Ă��������B<br>(��) https://proxyuser:password@proxyhost.example.com:8080<br><span class="text-warning">���ӎ���: �T�[�o�[�̊��ϐ��uHTTPS_PROXY�v���㏑�����܂��B</span>"
+    MSG[24]="必要であれば、あなたの環境で利用する HTTPS プロキシの指定をしてください。<br>(例) https://proxyuser:password@proxyhost.example.com:8080<br><span class="text-warning">注意事項: サーバーの環境変数「HTTPS_PROXY」を上書きします。</span>"
 
     MSG[15]="OK &amp; Upload &amp; Please Wait"
-    MSG[25]="OK &amp; �A�b�v���[�h &amp; ���X���҂���������"
+    MSG[25]="OK &amp; アップロード &amp; 少々お待ちください"
 
     MSG[16]="Getting XOOPS X (ten) and extracting..."
-    MSG[26]="XOOPS X (ten) �̃p�b�P�[�W���擾���T�[�o�[��ɔz�u���Ă��܂�..."
+    MSG[26]="XOOPS X (ten) のパッケージを取得しサーバー上に配置しています..."
 
     MSG[17]="Goto your XOOPS Cube Legacy installer"
-    MSG[27]="�N���b�N���� XOOPS Cube Legacy �̃C���X�g�[���[�֐i��"
+    MSG[27]="クリックして XOOPS Cube Legacy のインストーラーへ進む"
 
     echo ${MSG[$L$1]}
 }
