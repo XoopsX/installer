@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 function urldecode() {
      cat > /tmp/urldecode.sed << \EOF
