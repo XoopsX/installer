@@ -12,7 +12,7 @@ main() {
 		tar zxf corepack.tar.gz ${PREFIX}xoops_trust_path
 		cp -rf ${PREFIX}xoops_trust_path/* ${TRUST}
 		cp -f ${PREFIX}xoops_trust_path/.* ${TRUST}
-		rm -rf ${PREFIX}xoops_trust_path
+		rm -rf ${PREFIX}
 		tar zxf corepack.tar.gz ${PREFIX}html
 		cp -rf ${PREFIX}html/* ./
 		cp -f ${PREFIX}html/.* ./
