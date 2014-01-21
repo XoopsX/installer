@@ -125,6 +125,13 @@ if [ $QUERY_STRING ]; then
 
 fi
 
+# get document root
+if [ $DOCUMENT_ROOT ]; then
+    DR=$DOCUMENT_ROOT
+else
+    DR=`pwd`
+fi
+
 # output
 echo "<html><head>"
 echo "<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">"
@@ -133,7 +140,7 @@ echo "</head><body>"
 
 if [ ! $TRUST ]; then
     if [ ! $P ]; then
-        P="`dirname  \`pwd\``/xoops_trust_path"
+        P="`dirname ${DR}`/xoops_trust_path"
     fi
     showForm $P
 else
@@ -152,7 +159,7 @@ else
         echo "<div class="form-actions"><a href=\"./install/index.php\" class=\"btn btn-success\">$(msg 7)</a></div>"
     else
         echo "<div><span class=\"label label-important\">$MSG</span></div>"
-        declare P="`dirname  \`pwd\``/xoops_trust_path"
+        declare P="`dirname ${DR}`/xoops_trust_path"
         showForm $P
     fi
     
