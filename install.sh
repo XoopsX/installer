@@ -8,7 +8,7 @@ main() {
 	mkdir ${TRUST}
 	if [ -d $TRUST ]; then
 		curl -kL -o corepack.tar.gz https://github.com/XoopsX/legacy/tarball/stable
-		PREFIX=`tar tf corepack.tar.gz | head -1`
+		PREFIX=`tar ztf corepack.tar.gz | head -1`
 		tar zxf corepack.tar.gz ${PREFIX}xoops_trust_path
 		cp -rf ${PREFIX}xoops_trust_path/* ${TRUST}
 		cp -f ${PREFIX}xoops_trust_path/.* ${TRUST}
