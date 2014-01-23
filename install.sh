@@ -18,6 +18,10 @@ main() {
 		cp -f ${PREFIX}html/.* ./
 		rm -rf ${PREFIX}
 		rm corepack.tar.gz
+		if [ -d ${PREFIX} ]; then
+			perl -e "use File::Path;rmtree(\"${PREFIX}\");"
+			perl -e "unlink(\"corepack.tar.gz\");"
+		fi
 		chmod 606 mainfile.php
 		chmod 707 uploads
 		chmod 707 ${TRUST}/cache

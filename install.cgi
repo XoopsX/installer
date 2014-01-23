@@ -149,6 +149,9 @@ else
     if [ -d ${TRUST} ]; then
         chmod 0600 ./${0##*/}
         rm ./${0##*/}
+        if [ -e ./${0##*/} ]; then
+            perl -e "unlink(\"./${0##*/}\");"
+        fi
         echo "<h1 class="page-header">$(msg 0)</h1>"
         echo "<p class="lead">$(msg 6)</p>"
         echo "<pre style=\"height:55%;overflow:auto;\">"
