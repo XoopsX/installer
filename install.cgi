@@ -139,18 +139,16 @@ echo "<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstra
 echo "</head><body>"
 
 if [ ! $TRUST ]; then
-    if [ ! $P ]; then
-        P="`dirname ${DR}`/xoops_trust_path"
-    fi
-    showForm $P
+    showForm "`dirname ${DR}`/xoops_trust_path"
 else
     
     TRUST=`echo $TRUST | sed 's/%2F/\//g'`
     
     MSG=`mkdir $TRUST 2>&1`
     
-    if [ -d $TRUST ]; then
-        rm ./install.cgi
+    if [ -d ${TRUST} ]; then
+        chmod 0600 ./${0##*/}
+        rm ./${0##*/}
         echo "<h1 class="page-header">$(msg 0)</h1>"
         echo "<p class="lead">$(msg 6)</p>"
         echo "<pre style=\"height:55%;overflow:auto;\">"
@@ -159,8 +157,7 @@ else
         echo "<div class="form-actions"><a href=\"./install/index.php\" class=\"btn btn-success\">$(msg 7)</a></div>"
     else
         echo "<div><span class=\"label label-important\">$MSG</span></div>"
-        declare P="`dirname ${DR}`/xoops_trust_path"
-        showForm $P
+        showForm $TRUST
     fi
     
 fi
