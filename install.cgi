@@ -116,10 +116,6 @@ if [ $QUERY_STRING ]; then
     do
         declare ${parm[i]}=${parm[i+1]} >/dev/null 2>&1
     done
-    
-    if [ ! $TRUST ]; then
-        P=`cd $@;pwd`
-    fi
 
     export HTTPS_PROXY=$(urldecode $HTTPS_PROXY)
 
@@ -139,7 +135,7 @@ echo "<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstra
 echo "</head><body>"
 
 if [ ! $TRUST ]; then
-    showForm "`dirname ${DR}`/xoops_trust_path"
+    showForm "$(dirname ${DR})/xoops_trust_path"
 else
     
     TRUST=`echo $TRUST | sed 's/%2F/\//g'`
@@ -160,7 +156,10 @@ else
         echo "<div class="form-actions"><a href=\"./install/index.php\" class=\"btn btn-success\">$(msg 7)</a></div>"
     else
         echo "<div><span class=\"label label-important\">$MSG</span></div>"
-        showForm $TRUST
+        if [ ${TRUST} = "${DR}/xoops_trust_path" ]; then
+            DR=`pwd`
+        fi
+        showForm "${DR}/xoops_trust_path"
     fi
     
 fi
