@@ -7,7 +7,7 @@ main() {
 	fi
 	mkdir ${TRUST}
 	if [ -d $TRUST ]; then
-		curl -kL -o corepack.tar.gz https://github.com/XoopsX/legacy/tarball/pilot
+		curl -kL -o corepack.tar.gz https://github.com/XoopsX/legacy/archive/pilot.tar.gz
 		PREFIX=`tar ztf corepack.tar.gz | head -1`
 		tar zxf corepack.tar.gz ${PREFIX}xoops_trust_path
 		cp -rf ${PREFIX}xoops_trust_path/* ${TRUST}
